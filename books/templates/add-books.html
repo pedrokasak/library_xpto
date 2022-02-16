@@ -1,0 +1,46 @@
+{% extends 'administrative/base.html' %}
+
+
+{% block title %} Library XPTO - Adicionando Livro {% endblock title %}
+
+{% block content %}
+{% load static %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Analise de dados</h4>
+                        <div class="table-responsive">
+                            <form class="forms-sample" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="exampleInputUsername1">Nome</label>
+                                    {{ form.name }}
+                                    <!-- <input type="file" class="form-control"
+                                        placeholder=".xls ou .csv"> -->
+                                </div>
+                                <button type="submit" class="btn btn-gradient-success me-2">Submit</button>
+                                <button class="btn btn-secondary" type="reset">Cancel</button>
+                                <hr>
+                                &nbsp;&nbsp;
+                                {% if messages %}
+                                <div class="alert alert-primary" align="center" role="alert">
+                                    <ul>
+                                        {% for message in messages %}
+                                        <li class="{{ message.tags}}">
+                                            {{ message|safe }}
+                                            <a href="" class="close"></a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}

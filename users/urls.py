@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import StaffSigUpView
+from .views import register, staff_login, logout
+
+app_name ='users'
 
 urlpatterns = [
-    path('login/', StaffSigUpView.as_view(), name='login'),
+    path('', staff_login, name='login'),
+    path('register/', register, name='register'),
+    path('logout/', logout, name='logout'),
 ]

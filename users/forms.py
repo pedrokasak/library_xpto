@@ -1,7 +1,7 @@
-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import Users
+from django.contrib.auth import authenticate
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Password',
@@ -19,6 +19,21 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
 
+
+class StaffLoginForm(forms.Form):
+    email = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean(self, *args, **kwargs):
+        email = self.cleaned_data.get("email")
+        password = self.cleaned_data.get("password")
+        if email and password:
+            user = authenticate(username=email, password=password)
+            if not user:
+                raise forms.ValidationError("Staff: Login ou senha invalidos")
+            if not user.is_staff:
+                raise forms.ValidationError("Usuário não é membro da equipe.")
+        return super().clean()
 
 class StaffSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Listagem de Livros</h4>
+                <div class="card-header-right">
+                    <a href="{% url 'books:add' %}" class="btn btn-card btn-primary"> Novo
+                        Livro</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Nome </th>
+                                <th> Autor </th>
+                                <th> Descrição </th>
+                                <th> Data de Criação </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for query in queryset %}
+                            <tr>
+                                <td> {{query.name}} </td>
+                                <td>{{query.authors}}</td>
+                                <td>{{query.description}}</td>
+                                <td>{{query.create_by}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
