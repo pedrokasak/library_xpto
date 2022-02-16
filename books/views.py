@@ -25,4 +25,6 @@ class BooksUpdateView(UpdateView):
     success_url = reverse_lazy('books:books_list')
 
 class BooksDeleteView(DeleteView):
-    pass
+    model = Books
+    template_name = 'delete-books.html'
+    success_url = reverse_lazy('books:books_list')

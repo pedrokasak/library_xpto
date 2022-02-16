@@ -1,7 +1,7 @@
 {% extends 'administrative/base.html' %}
 
 
-{% block title %} Library XPTO - Adicionando Livro {% endblock title %}
+{% block title %} Library XPTO - Editando Livro {% endblock title %}
 
 {% block content %}
 {% load static %}
@@ -11,13 +11,13 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Cadastro de livros</h4>
+                        <h4 class="card-title">Analise de dados</h4>
                         <div class="table-responsive">
                             <form class="forms-sample" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Nome</label>
-                                    {{ form.as_p }}
+                                    {{ form.name }}
                                     <!-- <input type="file" class="form-control"
                                         placeholder=".xls ou .csv"> -->
                                 </div>

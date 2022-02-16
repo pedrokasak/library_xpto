@@ -23,6 +23,10 @@ class BooksCreateViewForm(forms.ModelForm):
         ),
         'publishing_company': forms.TextInput(
             attrs={'class': 'form-control',
+                   'placeholder': 'Informe a Editora', }
+        ),
+        'is_available': forms.CheckboxInput(
+            attrs={'class': 'form-control',
                    'placeholder': 'informe a Editora', }
         ),
     }
