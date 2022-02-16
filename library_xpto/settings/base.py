@@ -74,9 +74,9 @@ WSGI_APPLICATION = 'library_xpto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD'),
+        'NAME': 'xpto',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
         'HOST': 'localhost',  
         'PORT': '5432',
      }
