@@ -136,7 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Página de redirecionamento após o login
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = ''
 LOGIN_REDIRECT_URL = '/dashboard/index'
 
 # Default primary key field type
