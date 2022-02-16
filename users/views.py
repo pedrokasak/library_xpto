@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from users.models import Users
+from .forms import *
 
 def register(request):
     if request.method == 'POST':
