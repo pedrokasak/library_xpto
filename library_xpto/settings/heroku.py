@@ -1,6 +1,6 @@
 import environ
 
-from ..settings.base import *
+from library_xpto.settings.base import *
 
 env = environ.Env()
 
