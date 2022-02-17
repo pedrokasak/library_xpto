@@ -7,8 +7,11 @@ from .forms import BooksCreateViewForm
 
 class BooksListView(ListView):
     model = Books
-    template_name = 'books.html'
-    queryset = Books.objects.all()[:5]
+    
+    def get(self, request, *args, **kwargs):
+        queryset = Books.objects.all()[:5]
+        context = {'queryset': queryset}
+        return render(request,'books.html', context)
 
 
 class BooksCreateView(CreateView):
